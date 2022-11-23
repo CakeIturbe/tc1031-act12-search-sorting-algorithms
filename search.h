@@ -30,10 +30,13 @@ int Search<T>::busqSecuencial(const vector<T> &v, int n) {
 	for (int i = 0; i < v.size(); i++) {
 		contadorSS++;
 		if (v[i] == n) {
-			cout<<"Cantidad de comparaciones Busqueda Secuencial: "<< contadorSS<< endl; 
+			cout<< i << " ";
+			cout<<contadorSS<< " "; 
 			return i;
 		}
 	}
+	cout<<"-1 ";
+	cout<< contadorSS << " ";
 	return -1;
 }
 
@@ -47,7 +50,7 @@ int Search<T>::busqBinaria(const vector<T> &v, int n) {
 		mid = low + ((high - low) / 2); // mid = (high + low) / 2;
 		contador++;
 		if (n == v[mid]) {
-			cout<<"Cantidad de comparaciones Busqueda Binaria: "<< contador << endl; 
+			cout<< contador << " "; 
 			return mid;
 		} else if (n < v[mid]) {
 			high = mid - 1;
@@ -55,6 +58,7 @@ int Search<T>::busqBinaria(const vector<T> &v, int n) {
 			low = mid + 1;
 		}
 	}
+	cout<< contador << " ";
 	return -1;
 }
 

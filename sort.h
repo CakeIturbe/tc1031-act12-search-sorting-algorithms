@@ -24,15 +24,19 @@ class Sorts {
 
 template <class T>
 void Sorts<T>::copyArray(vector<T> &A, vector<T> &B, int low, int high) {
+
 	for (int i = low; i <= high; i++) {
 		A[i] = B[i];
 	}
+
 }
 
 template <class T>
 void Sorts<T>::mergeArray(vector<T> &A, vector<T> &B, int low, int mid, int high) {
 	int i = low, j = mid + 1, k =  low;
+
 	while (i <= mid &&j <= high) {
+
 		if (A[i] < A[j]) {
 			B[k] = A[i];
 			i++;
@@ -43,7 +47,9 @@ void Sorts<T>::mergeArray(vector<T> &A, vector<T> &B, int low, int mid, int high
 		k++;
 	}
 	if (i > mid) {
+    
 		for (; j <= high; j++) {
+            
 			B[k++] = A[j];
 		}
 	} else {
@@ -51,11 +57,13 @@ void Sorts<T>::mergeArray(vector<T> &A, vector<T> &B, int low, int mid, int high
 			B[k++] = A[i];
 		}
 	}
+
 }
 
 template<class T>
 void Sorts<T>::mergeSplit(vector<T> &A, vector<T> &B, int low, int high) {
     if ((high - low) < 1) return;
+
     int mid = (high + low) / 2;
     mergeSplit(A, B, low, mid);
     mergeSplit(A, B, mid + 1, high);
@@ -64,7 +72,8 @@ void Sorts<T>::mergeSplit(vector<T> &A, vector<T> &B, int low, int high) {
 }
 
 template <class T>
-void Sorts<T>::mergeSort(vector<T> &v) {
+void Sorts<T>::mergeSort(vector<T> &v ) {
+    
 	vector<T> temporal(v.size());
 	mergeSplit(v, temporal, 0, v.size() - 1);
 }
@@ -74,11 +83,14 @@ void Sorts<T>::bubbleSort(vector<T> &v) {
     int contador= 0;
 	for(int i = v.size() - 1; i > 0; i--){
 		for(int j = 0; j < i; j++){
+            
 			if(v[j] > v[j + 1]){
+                contador++;
 				swap(v, j, j + 1);
 			}
 		}
 	}
+    cout<< contador << " ";
 }
 
 template <class T>
@@ -91,15 +103,19 @@ void Sorts<T>::swap(vector<T> &v, int i, int j) {
 template <class T>
 void Sorts<T>::selectionSort(vector<T> &v) {
 	int pos;
+    int contador=0;
 	for(int i = v.size() - 1; i > 0; i--){
 		pos = 0;
 		for(int j = 1; j <= i; j++){
 			if(v[j] > v[pos]){
+                
 				pos = j;
 			}
 		}
 		if (pos != i){
+            contador++;
 			swap(v, i, pos);
 		}
 	}
+    cout<< contador<<" ";
 }

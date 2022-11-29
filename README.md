@@ -29,6 +29,8 @@ Peor escenario: O(log n).
 ```
 // =========================================================
 // Author: DIEGO ITURBE BRAVO - A01708272
+// Programación de estructuras de datos y algoritmos fundamentales
+// Francisco Javier Navarro Barrón
 // =========================================================
 ```
 
